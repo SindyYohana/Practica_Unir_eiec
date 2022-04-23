@@ -16,6 +16,7 @@ Si posee una versión menor a la 3, es recomendable que a través de su gestor d
 
 ## Ejecución
 
-python3 main.py <filename> <dup>
+python3 main.py <filename> <dup> [<order>]
   filename: **ruta** al fichero que contiene la lista de palabras, una por línea
   dup: **yes|no**, yes para eliminar palabras duplicadas, no para mantener la lista
+  order: **asc|desc**, `asc` para ordenar ascendentemente, `desc` para ordenar descendentemente. Si no se especifica, por defecto es `asc`.

@@ -8,6 +8,7 @@ import sys
 
 DEFAULT_FILENAME = "words.txt"
 DEFAULT_DUPLICATES = False
+DEFAULT_ASCENDING_ORDER = False
 
 
 def sort_list(items, ascending=True):
@@ -24,9 +25,12 @@ def remove_duplicates_from_list(items):
 if __name__ == "__main__":
     filename = DEFAULT_FILENAME
     remove_duplicates = DEFAULT_DUPLICATES
-    if len(sys.argv) == 3:
+    ascending_order = DEFAULT_ASCENDING_ORDER
+    if len(sys.argv) == 3 or len(sys.argv) == 4:
         filename = sys.argv[1]
         remove_duplicates = sys.argv[2].lower() == "yes"
+        if (len(sys.argv) == 4 and sys.argv[3] in ['asc', 'desc']):
+            ascending_order = sys.argv[3] == 'asc'
     else:
         print("You must specify the file path as the first argument")
         print("You must indicate in second argument if you want to delete duplicated lines (yes/no)")
@@ -46,4 +50,4 @@ if __name__ == "__main__":
     if remove_duplicates:
         word_list = remove_duplicates_from_list(word_list)
 
-    print(sort_list(word_list))
+    print(sort_list(word_list, ascending_order))
